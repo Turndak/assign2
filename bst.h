@@ -29,4 +29,5 @@ extern void pruneBSTNode(bstNode *);
 extern void statisticsBST(bst *,FILE *);
 extern void displayBST(FILE *,bst *);
 extern void checkBST(bst *);                //optional
+
 #endif
