@@ -1,6 +1,5 @@
 #include "bst.h"
 #include "queue.h"
-#include <limits.h>
 #include <stdio.h>
 
 #define min(a,b) (a<b?a:b)//min macro
