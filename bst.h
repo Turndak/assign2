@@ -16,6 +16,7 @@ typedef struct bstNode
 typedef struct bst
     {
     bstNode *root;
+    int size;
     void (*display)(FILE *,void *);
     int (*compare)(void *,void *);
     } bst;
@@ -25,9 +26,9 @@ extern bstNode *insertBST(bst *,void *);
 extern int findBST(bst *,void *);
 extern bstNode *findBSTNode(bst *,void *);
 extern bstNode *swapToLeafBSTNode(bstNode *);
-extern void pruneBSTNode(bstNode *);
+extern void pruneBSTNode(bst *,bstNode *);
+extern int sizeBST(bst *);
 extern void statisticsBST(bst *,FILE *);
 extern void displayBST(FILE *,bst *);
 extern void checkBST(bst *);                //optional
-
 #endif

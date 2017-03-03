@@ -6,4 +6,3 @@
 
 #ifndef __CLEANSTRING__INCLUDED__
 #define __CLEANSTRING__INCLUDED__
-
