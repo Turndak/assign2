@@ -147,7 +147,7 @@ bstNode *swapToLeafBSTNode(bstNode *n)
 
 void pruneBSTNode(bst *tree, bstNode *n)
 { //disconnects n from tree
-	if (n == tree->root && tree->root->left == NULL && tree->root->right == NULL)
+	if (n == tree->root && tree->root->left == NULL && tree->root->right == NULL)//is root
 	{
 		tree->root = NULL;
 	}
@@ -204,7 +204,7 @@ void statisticsBST(bst *tree,FILE *fp)
 	fprintf(fp, "max: %d\n", max);
 }
 
-void displayBST(FILE *fp,bst *tree)
+void displayBST(FILE *fp, bst *tree)
 { //displays tree, calls display function to display node value
 	
 	queue *newQ = newQueue(tree->display);
@@ -245,9 +245,9 @@ void displayBST(FILE *fp,bst *tree)
 				fprintf(fp, "=");
 			}
 			
-			fprintf(fp, "\"");
+			//fprintf(fp, "\"");
 			tree->display(fp, x->value);
-			fprintf(fp, "\"");
+			//fprintf(fp, "\"");
 
 			if(x == tree->root)
 			{
@@ -259,15 +259,15 @@ void displayBST(FILE *fp,bst *tree)
 			{
 				if(tree->compare(x->value, x->parent->value)<0)
 				{
-					fprintf(fp, "(\""); 
+					fprintf(fp, "("); 
 					tree->display(fp, x->parent->value);
-					fprintf(fp, "\")-l "); 
+					fprintf(fp, ")-l "); 
 				}
 				else
 				{
-					fprintf(fp, "(\""); 
+					fprintf(fp, "("); 
 					tree->display(fp, x->parent->value);
-					fprintf(fp, "\")-r "); 
+					fprintf(fp, ")-r "); 
 				}
 
 			}
