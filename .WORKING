@@ -1,0 +1,8 @@
+/mnt/d/OneDrive/Documents/Spring2017/CS201/assign2
+Fri Mar 10 16:29:47 STD 2017
+assign2testing	comparator.c		 queue.c  scanner.c  test.txt
+bst.c		comparator.h		 queue.h  scanner.h  vbst.c
+bst.h		dturner2@crimson.ua.edu  rbt.c	  sll.c      vbst.h
+bstrees.c	integer.c		 rbt.h	  sll.h      WORKING
+cleaner.c	integer.h		 real.c   string.c
+cleaner.h	makefile		 real.h   string.h

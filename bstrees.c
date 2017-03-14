@@ -1,88 +1,143 @@
 #include "integer.h"
 #include "bst.h"
 #include "vbst.h"
+#include "rbt.h"
+#include "cleaner.h"
+#include "comparator.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-
-// void cleanFile(File *fp, bst *a)
-// {
-// 	char *str = cleanUp(fp);
-// 	while (!feof(fp))
-// 	{
-// 		cleanUp(str);
-// 		insertBST(a, newString(str));
-// 		str = cleanUp(fp);
-// 	}
-// }
-
-
-void main()
+void readVBST_file(FILE *fp, vbst *a)
 {
-	/*bst *a = newBST(displayInteger, compareInteger);
-	insertBST(a, newInteger(1));
-	insertBST(a, newInteger(0));
-	insertBST(a, newInteger(8));
-	insertBST(a, newInteger(7));
-	insertBST(a, newInteger(9));
-	insertBST(a, newInteger(2));
-	insertBST(a, newInteger(4));
-	insertBST(a, newInteger(3));
-	insertBST(a, newInteger(5));
-	insertBST(a, newInteger(6));
-	displayBST(stdout,a);
-	//printf("\n");
-	//statisticsBST(a,stdout);
+	char *str = cleanUp(fp);
+	while (!feof(fp))
+	{
+		cleanString(str);
+		insertVBST(a, newString(str));
+		str = cleanUp(fp);
+	}
+}
 
-	int x = findBST(a, newInteger(2));
-	printf("1 if found: %d\n", x);
+void readRBT_file(FILE *fp, rbt *a)
+{
+	char *str = cleanUp(fp);
+	while (!feof(fp))
+	{
+		cleanString(str);
+		insertRBT(a, newString(str));
+		str = cleanUp(fp);
+	}
+}
 
-	bstNode *z = findBSTNode(a, newInteger(1));
-	fprintf(stdout, "value of found node: ");
-	a->display(stdout, z->value);
-	printf("\n");
+void VBST_commands(FILE *fp, vbst *a, FILE *out)
+{
+	char *str = cleanUp(fp);
+	while(!feof(fp))
+	{
+		cleanString(str);
+		if(strcmp(str, "s") == 0)
+		{
+			displayVBST(out, a);
+		}
+		else if(strcmp(str, "r") == 0)
+			statisticsVBST(a, out);
+		else if(strcmp(str, "f") == 0)
+		{
+			str = cleanUp(fp);
+			cleanString(str);
+			fprintf(out, "Frequency of \"%s\": %d\n",str, findVBST(a, newString(str)));
+		}	
+		else if(strcmp(str, "d") == 0)
+		{
+			str = cleanUp(fp);
+			cleanString(str);
+			deleteVBST(a, newString(str));
+		}
+		else if(strcmp(str, "i") == 0)
+		{
+			str = cleanUp(fp);
+			cleanString(str);
+			if(strcmp(str, "") != 0)
+			{
+				insertVBST(a, newString(str));
+			}
+		}
+		str = cleanUp(fp);
+	}
+}
 
-	printf("Size of BST: %d\n", sizeBST(a));
-	statisticsBST(a, stdout);
+void RBT_commands(FILE *fp, rbt *a, FILE *out)
+{
+	char *str = cleanUp(fp);
+	while(!feof(fp))
+	{
+		cleanString(str);
+		if(strcmp(str, "s") == 0)
+		{
+			displayRBT(out, a);
+		}
+		else if(strcmp(str, "r") == 0)
+			statisticsRBT(a, out);
+		else if(strcmp(str, "f") == 0)
+		{
+			str = cleanUp(fp);
+			cleanString(str);
+			fprintf(out, "Frequency of \"%s\": %d\n",str, findRBT(a, newString(str)));
+		}	
+		else if(strcmp(str, "i") == 0)
+		{
+			str = cleanUp(fp);
+			cleanString(str);
+			if(strcmp(str, "") != 0)
+			{
+				insertRBT(a, newString(str));
+			}
+		}
+		str = cleanUp(fp);
+	}
+}
 
-	bstNode *f;
-	f = swapToLeafBSTNode(z);
-	displayBST(stdout,a);
+int main (int argc, char **argv) {
+    FILE *corpus = NULL;
+    FILE *commands = NULL;
+    FILE *output = NULL;
 
-	printf("\n");
+    corpus = fopen(argv[2], "r");
 
-	pruneBSTNode(a, f);
-	displayBST(stdout,a);
+    commands = fopen(argv[3], "r");
 
-	printf("\nSize of BST: %d\n", sizeBST(a));*/
-
-
-/************************************************************/
-	vbst *a = newVBST(displayInteger, compareInteger);
-	insertVBST(a, newInteger(0));
-	insertVBST(a, newInteger(1));
-	insertVBST(a, newInteger(0));
-	insertVBST(a, newInteger(8));
-	insertVBST(a, newInteger(7));
-	insertVBST(a, newInteger(9));
-	insertVBST(a, newInteger(2));
-	insertVBST(a, newInteger(4));
-	insertVBST(a, newInteger(3));
-	insertVBST(a, newInteger(5));
-	insertVBST(a, newInteger(6));
-
-	displayVBST(stdout, a);
-
-	printf("\nFreq of 0 is: %d\n",findVBST(a, newInteger(0)));
-
-	deleteVBST(a, newInteger(2));
-
-	displayVBST(stdout, a);
-	printf("\nFreq of 0 is: %d\n",findVBST(a, newInteger(0)));
-
-	printf("Size: %d\n", sizeVBST(a));
-	printf("Words: %d\n", wordsVBST(a));
-	statisticsVBST(a, stdout);
-
+    if (argc == 5) 
+    {
+        output = fopen(argv[4], "w");
+    }
+    else {
+        output =  stdout;
+    }
+    if (strcmp(argv[1],"-v") == 0) {
+        vbst *v = newVBST(displayString,stringComparator);
+        readVBST_file(corpus,v);
+        VBST_commands(commands,v,output);
+    }
+    else if (strcmp(argv[1],"-r") == 0) {
+        rbt *r = newRBT(displayString,stringComparator);
+        readRBT_file(corpus,r);
+        RBT_commands(commands,r, output);
+    }
+    else
+        fprintf(stderr,"%s is not a valid!\n",argv[1]);
+    
+    if(corpus != NULL)
+    {
+    	fclose(corpus);
+    }
+    if(commands != NULL)
+    {
+    	fclose(commands);
+    }        
+    if(output != NULL)
+    {
+    	fclose(output);
+    }        
+    return 0;
 }
 

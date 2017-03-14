@@ -1,0 +1,6 @@
+0: "dfajd"-B("dfajd"-B)-
+1: "b"-2-R("dfajd"-B)-l "s"-R("dfajd"-B)-r
+2: "a"-4-B("b"-2-R)-l ="c"-B("b"-2-R)-r "fd"-B("s"-R)-l "st"-B("s"-R)-r
+3: =""-2-R("a"-4-B)-l ="ds"-R("fd"-B)-l ="v"-R("st"-B)-r
+min: 3
+max: 4

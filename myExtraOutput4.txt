@@ -1,0 +1,16 @@
+0: "of"-B("of"-B)-
+1: "how"-B("of"-B)-l "well"-R("of"-B)-r
+2: ="abcdefgh"-R("how"-B)-l "string"-B("well"-R)-l "your"-B("well"-R)-r
+3: ="reader"-R("string"-B)-l ="thisisatest"-R("string"-B)-r ="works"-R("your"-B)-l
+min: 2
+max: 4
+0: "of"-B("of"-B)-
+1: "bobsaget"-B("of"-B)-l "well"-R("of"-B)-r
+2: ="abcdefgh"-R("bobsaget"-B)-l ="how"-R("bobsaget"-B)-r "string"-B("well"-R)-l "your"-B("well"-R)-r
+3: ="reader"-R("string"-B)-l ="thisisatest"-R("string"-B)-r ="works"-R("your"-B)-l
+min: 3
+max: 4
+0: "of"-B("of"-B)-
+1: "bobsaget"-R("of"-B)-l "well"-R("of"-B)-r
+2: ="abcdefgh"-B("bobsaget"-R)-l "how"-B("bobsaget"-R)-r "string"-B("well"-R)-l "your"-B("well"-R)-r
+3: ="fred"-R("how"-B)-l ="reader"-R("string"-B)-l ="thisisatest"-R("string"-B)-r ="works"-R("your"-B)-l

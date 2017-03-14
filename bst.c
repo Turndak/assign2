@@ -1,6 +1,7 @@
 #include "bst.h"
 #include "queue.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 #define min(a,b) (a<b?a:b)//min macro
 #define max(a,b) (a>b?a:b)//max macro
@@ -50,6 +51,7 @@ bstNode *insertBST(bst *tree,void *value)
 	{
 		helper_2->right = new_node;
 	}
+	return new_node;
 	++tree->size;
 }
 
@@ -78,7 +80,7 @@ int findBST(bst *tree,void *value)
 			x = x->left;
 		}
 	}
-
+	return 0;
 }
 
 bstNode *findBSTNode(bst *tree,void *value)
@@ -106,6 +108,7 @@ bstNode *findBSTNode(bst *tree,void *value)
 			x = x->left;
 		}
 	}
+	return 0;
 }
 
 bstNode *swapToLeafBSTNode(bstNode *n)
@@ -143,6 +146,7 @@ bstNode *swapToLeafBSTNode(bstNode *n)
 		hold->value = tmp;
 		swapToLeafBSTNode(hold);
 	}
+	return 0;
 }
 
 void pruneBSTNode(bst *tree, bstNode *n)
@@ -203,7 +207,7 @@ void statisticsBST(bst *tree,FILE *fp)
 	fprintf(fp, "min: %d\n", min);
 	fprintf(fp, "max: %d\n", max);
 }
-
+ 
 void displayBST(FILE *fp, bst *tree)
 { //displays tree, calls display function to display node value
 	
@@ -245,15 +249,13 @@ void displayBST(FILE *fp, bst *tree)
 				fprintf(fp, "=");
 			}
 			
-			//fprintf(fp, "\"");
 			tree->display(fp, x->value);
-			//fprintf(fp, "\"");
 
 			if(x == tree->root)
 			{
 				fprintf(fp, "("); 
 				tree->display(fp, x->parent->value);
-				fprintf(fp, ")- ");
+				fprintf(fp, ")-");
 			}
 			else if(x->parent != NULL)
 			{
@@ -261,15 +263,20 @@ void displayBST(FILE *fp, bst *tree)
 				{
 					fprintf(fp, "("); 
 					tree->display(fp, x->parent->value);
-					fprintf(fp, ")-l "); 
+					fprintf(fp, ")-l"); 
 				}
 				else
 				{
 					fprintf(fp, "("); 
 					tree->display(fp, x->parent->value);
-					fprintf(fp, ")-r "); 
+					fprintf(fp, ")-r"); 
 				}
 
+			}
+			
+			if(peekQueue(newQ) != NULL) 
+			{
+				fprintf(fp, " ");
 			}
 
 			if(x->left != NULL)

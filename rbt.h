@@ -1,6 +1,7 @@
  /*** red-black binary search tree class ***/
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "bst.h"
 
 #ifndef __RBT_INCLUDED__
