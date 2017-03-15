@@ -1,8 +1,22 @@
-/mnt/d/OneDrive/Documents/Spring2017/CS201/assign2
-Fri Mar 10 16:29:47 STD 2017
-assign2testing	comparator.c		 queue.c  scanner.c  test.txt
-bst.c		comparator.h		 queue.h  scanner.h  vbst.c
-bst.h		dturner2@crimson.ua.edu  rbt.c	  sll.c      vbst.h
-bstrees.c	integer.c		 rbt.h	  sll.h      WORKING
-cleaner.c	integer.h		 real.c   string.c
-cleaner.h	makefile		 real.h   string.h
+//mnt/c/Users/Dakota Turner/OneDrive/Documents/Spring2017/CS201/assign2
+Tue Mar 14 16:45:48 DST 2017
+assign2testing	dturner2@crimson.ua.edu  out4.txt     real.h
+bst.c		integer.c		 out5.txt     sampleCommands1.txt
+bst.h		integer.h		 out6.txt     sampleCommands2.txt
+bstrees.c	makefile		 out7.txt     sampleCommands3.txt
+cleaner.c	myExtraOutput4.txt	 out8.txt     sampleCommands4.txt
+cleaner.h	myExtraOutput6.txt	 out9.txt     sampleCommands5.txt
+commands0.txt	myExtraOutput7.txt	 output1.txt  sampleCorpus1.txt
+commands1.txt	myExtraOutput8.txt	 output2.txt  sampleCorpus2.txt
+commands2.txt	myOutput1.txt		 output3.txt  sampleCorpus3.txt
+commands3.txt	myOutput2.txt		 output4.txt  sampleCorpus4.txt
+commands4.txt	myOutput3.txt		 output5.txt  scanner.c
+commands5.txt	myOutput4.txt		 output6.txt  scanner.h
+commands6.txt	myOutput5.txt		 output7.txt  sll.c
+comparator.c	myOutput6.txt		 output8.txt  sll.h
+comparator.h	myOutput8.txt		 queue.c      string.c
+corpus0.txt	myOutput9.txt		 queue.h      string.h
+corpus1.txt	out10.txt		 rbt.c	      test.txt
+corpus2.txt	out1.txt		 rbt.h	      vbst.c
+corpus3.txt	out2.txt		 readme.txt   vbst.h
+corpus4.txt	out3.txt		 real.c       WORKING

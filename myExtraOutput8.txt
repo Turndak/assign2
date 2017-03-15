@@ -1,4 +1,6 @@
 0: "b"-B("b"-B)-
 1: ="a"-R("b"-B)-l ="c"-R("b"-B)-r
-min: 2
-max: 2
+Words/Phrases: 3
+Nodes: 3
+Minimum depth: 2
+Maximum depth: 2

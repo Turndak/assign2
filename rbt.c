@@ -287,6 +287,7 @@ int wordsRBT(rbt *tree)
 
 void statisticsRBT(rbt *tree,FILE *fp)
 {
+	fprintf(fp, "Words/Phrases: %d\n", tree->words);
 	return statisticsBST(tree->tree, fp);
 }
 

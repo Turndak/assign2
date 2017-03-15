@@ -70,12 +70,12 @@ void insertVBST(vbst *tree,void *value)
 		//bstnode does not have freq, so cast it to a vbst val
 		((vbstValue *)(search->value))->freq++;
 	}
-
 }
 
 int findVBST(vbst *tree,void *value)
 {//return the frequency of the value
 
+	
 	vbstValue *new_node = newVBST_value(tree->display, tree->compare);
 	new_node->value = value;
 
@@ -96,18 +96,23 @@ void deleteVBST(vbst *tree,void *value)
 	new_node->value = value;
 
 	bstNode *search =  findBSTNode(tree->tree, new_node);
+
+	if(search == NULL)
+	{
+		return;
+	}
+
 	if (((vbstValue *)(search->value))->freq > 1)
 	{
-		((vbstValue *)(search->value))->freq--;
-		((vbst *)(search->value))->words--;
+		((vbstValue *)(search->value))->freq -= 1;
+		((vbst *)(search->value))->words -= 1;
 	}
 	else
 	{
-		((vbst *)(search->value))->size--;
-		((vbst *)(search->value))->words--;
-
 		search = swapToLeafBSTNode(search);
 		pruneBSTNode(tree->tree, search);
+		tree->size -= 1;
+		tree->words -= 1;
 	}
 }
 
@@ -123,6 +128,7 @@ int wordsVBST(vbst *tree)
 
 void statisticsVBST(vbst *tree,FILE *fp)
 {
+	fprintf(fp, "Words/Phrases: %d\n", tree->words);
 	return statisticsBST(tree->tree, fp);
 }
 

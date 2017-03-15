@@ -9,4 +9,5 @@
 
 extern char *cleanUp(FILE *);
 extern void cleanString(char *);
+
 #endif

@@ -17,6 +17,7 @@ bst *newBST(void (*d)(FILE *,void *),int (*comparator)(void *,void *))
 
 bstNode *insertBST(bst *tree,void *value)
 { //returns inserted node
+	++tree->size;
 	bstNode *new_node = malloc(sizeof(bstNode));
 	new_node->value = value;
 	new_node->left = new_node->right = new_node->parent = 0;
@@ -52,7 +53,7 @@ bstNode *insertBST(bst *tree,void *value)
 		helper_2->right = new_node;
 	}
 	return new_node;
-	++tree->size;
+	
 }
 
 int findBST(bst *tree,void *value)
@@ -113,7 +114,7 @@ bstNode *findBSTNode(bst *tree,void *value)
 
 bstNode *swapToLeafBSTNode(bstNode *n)
 { //returns leaf node holding the original value
-	bstNode *hold = n;
+	bstNode *hold;
 	void *tmp;
 
 	if (n->left == NULL && n->right == NULL)//if it's already a leaf
@@ -132,7 +133,7 @@ bstNode *swapToLeafBSTNode(bstNode *n)
 		tmp = n->value;
 		n->value = hold->value;
 		hold->value = tmp;
-		swapToLeafBSTNode(hold);//recursive call to go all the way to the leaf
+		return swapToLeafBSTNode(hold);//recursive call to go all the way to the leaf
 	}
 	else
 	{
@@ -144,9 +145,8 @@ bstNode *swapToLeafBSTNode(bstNode *n)
 		tmp = n->value;
 		n->value = hold->value;
 		hold->value = tmp;
-		swapToLeafBSTNode(hold);
+		return swapToLeafBSTNode(hold);
 	}
-	return 0;
 }
 
 void pruneBSTNode(bst *tree, bstNode *n)
@@ -180,10 +180,10 @@ static int maxDepth(bstNode *x)//max helper function
 	{
 		return 0;
 	}
-	else
-	{
-		return 1 + max(maxDepth(x->left), maxDepth(x->right));
-	}
+
+	int maxLeft = maxDepth(x->left);
+	int maxRight = maxDepth(x->right);
+	return 1 + max(maxLeft, maxRight);
 }
 
 static int minDepth(bstNode *x)//min helper function
@@ -204,26 +204,28 @@ void statisticsBST(bst *tree,FILE *fp)
 
 	int min = minDepth(x);
 	int max = maxDepth(x);
-	fprintf(fp, "min: %d\n", min);
-	fprintf(fp, "max: %d\n", max);
+	fprintf(fp, "Nodes: %d\n", sizeBST(tree));
+	fprintf(fp, "Minimum depth: %d\n", min);
+	fprintf(fp, "Maximum depth: %d\n", max);
 }
  
 void displayBST(FILE *fp, bst *tree)
 { //displays tree, calls display function to display node value
+		
+	if(tree->root == NULL)
+	{
+		fprintf(fp, "0:\n");
+        return;
+	}
 	
 	queue *newQ = newQueue(tree->display);
 	enqueue(newQ, tree->root);//enqueue root and a null character to represent firts level
 	enqueue(newQ, NULL);
 
-	bstNode *x = malloc(sizeof(bstNode));
+	bstNode *x;
 
 	int breadthLevel = 0;
 	fprintf(fp, "%d: ", breadthLevel);
-
-	if(tree->root == NULL)
-	{
-		return;
-	}
 
 	while (sizeQueue(newQ)) //while the queue is not empty 
 	{
@@ -239,9 +241,11 @@ void displayBST(FILE *fp, bst *tree)
 			fprintf(fp,"\n");
 			enqueue(newQ, NULL);	//enqueue null to represent end of level
 			breadthLevel++;
-			fprintf(fp, "%d: ", breadthLevel);
+			if(sizeQueue(newQ) > 0)
+			{
+				fprintf(fp, "%d: ", breadthLevel);
+			}
 		}
-
 		else
 		{
 			if(x->left == NULL && x->right == NULL)
