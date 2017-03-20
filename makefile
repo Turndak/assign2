@@ -52,11 +52,13 @@ test: ./bstrees
 	./bstrees -v corpus3.txt commands5.txt myExtraOutput7.txt
 	./bstrees -r corpus3.txt commands5.txt myExtraOutput8.txt
 	diff myOutput1.txt out1.txt
+	diff myOutput2.txt out2.txt
 	diff myOutput3.txt out3.txt
 	diff myOutput4.txt out4.txt
 	diff myOutput5.txt out5.txt
 	diff myOutput6.txt out6.txt
 	diff myOutput8.txt out8.txt
+	diff myOutput9.txt out9.txt
 	diff myExtraOutput1.txt output1.txt
 	diff myExtraOutput2.txt output2.txt
 	diff myExtraOutput3.txt output3.txt

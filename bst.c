@@ -155,6 +155,7 @@ void pruneBSTNode(bst *tree, bstNode *n)
 	{
 		tree->root = NULL;
 	}
+
 	if(n->left == NULL && n->right == NULL)
 	{
 		if(n->parent->left == n)
@@ -165,6 +166,10 @@ void pruneBSTNode(bst *tree, bstNode *n)
 		{
 			n->parent->right = NULL;
 		}
+	}
+	else
+	{
+		printf("Value not found\n");
 	}
 	tree->size--;
 }

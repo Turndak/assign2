@@ -270,10 +270,13 @@ int findRBT(rbt *tree,void *value)
 	}
 }
 
-/*void deleteRBT(rbt *,void *)
+void deleteRBT(rbt *tree, void *value)
 {
+	//just to avoid compilation errors
+	rbtValue *new_node = newRBT_value(tree->display, tree->compare);
+	new_node->value = value;
 	printf("I'm here to drink milk and write code, and I'm all out of milk\n");
-}*/
+}
 
 int sizeRBT(rbt *tree)
 {

@@ -2,7 +2,6 @@
 #include "bst.h"
 #include "vbst.h"
 #include "rbt.h"
-//#include "cleaner.h"
 #include "scanner.h"
 #include "string.h"
 #include <string.h>
@@ -11,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//supplied by Dr. Lusth along with all other scanner.c functions in this file
 static char *cleanUp(FILE *fp)
 {
 	if(stringPending(fp))
@@ -23,6 +23,8 @@ static char *cleanUp(FILE *fp)
 	}
 }
 
+//cleans the input string/words
+//the base for this code was suppled from a stack overflow post
 static void cleanString(char *str)
 {
 	char *src = str, *dest = str;
@@ -37,7 +39,7 @@ static void cleanString(char *str)
 			
 			*dest++ = ' ';
 		}
-		else if (ispunct((unsigned char)*src) || isdigit((unsigned char)*src))
+		else if (!isalpha((unsigned char)*src))
 		{
 			src++;
 		}
@@ -60,6 +62,8 @@ static void cleanString(char *str)
 	*dest = 0;
 }
 
+//passes in string or word and while not at the end of the file 
+//passes the string through cleanstring and inserts it into the vbst
 void readVBST_file(FILE *fp, vbst *a)
 {
 	char *str = cleanUp(fp);
@@ -74,6 +78,8 @@ void readVBST_file(FILE *fp, vbst *a)
 	}
 }
 
+//passes in string or word and while not at the end of the file 
+//passes the string through cleanstring and inserts it into the rbt
 void readRBT_file(FILE *fp, rbt *a)
 {
 	char *str = cleanUp(fp);
@@ -88,6 +94,7 @@ void readRBT_file(FILE *fp, rbt *a)
 	}
 }
 
+//takes in the command file, cleans it, and executes the command in order
 void VBST_commands(FILE *fp, vbst *a, FILE *out)
 {
 	char *str = cleanUp(fp);
@@ -138,7 +145,9 @@ void RBT_commands(FILE *fp, rbt *a, FILE *out)
 			displayRBT(out, a);
 		}
 		else if(strcmp(str, "r") == 0)
+		{
 			statisticsRBT(a, out);
+		}
 		else if(strcmp(str, "f") == 0)
 		{
 			str = cleanUp(fp);

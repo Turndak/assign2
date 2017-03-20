@@ -1,22 +1,33 @@
-//mnt/c/Users/Dakota Turner/OneDrive/Documents/Spring2017/CS201/assign2
-Tue Mar 14 16:45:48 DST 2017
-assign2testing	dturner2@crimson.ua.edu  out4.txt     real.h
-bst.c		integer.c		 out5.txt     sampleCommands1.txt
-bst.h		integer.h		 out6.txt     sampleCommands2.txt
-bstrees.c	makefile		 out7.txt     sampleCommands3.txt
-cleaner.c	myExtraOutput4.txt	 out8.txt     sampleCommands4.txt
-cleaner.h	myExtraOutput6.txt	 out9.txt     sampleCommands5.txt
-commands0.txt	myExtraOutput7.txt	 output1.txt  sampleCorpus1.txt
-commands1.txt	myExtraOutput8.txt	 output2.txt  sampleCorpus2.txt
-commands2.txt	myOutput1.txt		 output3.txt  sampleCorpus3.txt
-commands3.txt	myOutput2.txt		 output4.txt  sampleCorpus4.txt
-commands4.txt	myOutput3.txt		 output5.txt  scanner.c
-commands5.txt	myOutput4.txt		 output6.txt  scanner.h
-commands6.txt	myOutput5.txt		 output7.txt  sll.c
-comparator.c	myOutput6.txt		 output8.txt  sll.h
-comparator.h	myOutput8.txt		 queue.c      string.c
-corpus0.txt	myOutput9.txt		 queue.h      string.h
-corpus1.txt	out10.txt		 rbt.c	      test.txt
-corpus2.txt	out1.txt		 rbt.h	      vbst.c
-corpus3.txt	out2.txt		 readme.txt   vbst.h
-corpus4.txt	out3.txt		 real.c       WORKING
+/mnt/d/OneDrive/Documents/Spring2017/CS201/assign2
+Mon Mar 20 11:27:51 DST 2017
+assign2testing	corpus1.txt		 out1.txt     sampleCommands1.txt
+beowulf.txt	corpus2.txt		 out2.txt     sampleCommands2.txt
+bst.c		corpus3.txt		 out3.txt     sampleCommands3.txt
+bst.h		corpus4.txt		 out4.txt     sampleCommands4.txt
+bstrees.c	display			 out5.txt     sampleCommands5.txt
+c25.0		dturner2@crimson.ua.edu  out6.txt     sampleCorpus1.txt
+c26.0		empty			 out7.txt     sampleCorpus2.txt
+c27.0		grabtests.sh		 out8.txt     sampleCorpus3.txt
+c28.0		integer.c		 out9.txt     sampleCorpus4.txt
+c29.0		integer.h		 output1.txt  scanner.c
+c30.0		makefile		 output2.txt  scanner.h
+c31.0		myExtraOutput1.txt	 output3.txt  shakespeare.display
+c32.0		myExtraOutput2.txt	 output4.txt  shakespeare.txt
+c35.0		myExtraOutput3.txt	 output5.txt  sll.c
+c36.0		myExtraOutput4.txt	 output6.txt  sll.h
+c37.0		myExtraOutput5.txt	 output7.txt  spaces.0
+clean.0		myExtraOutput6.txt	 output8.txt  string.c
+cleaner.c	myExtraOutput7.txt	 queue.c      string.h
+cleaner.h	myExtraOutput8.txt	 queue.h      vbst.c
+commands.0	myout17.txt		 rbt.c	      vbst.h
+commands0.txt	myOutput1.txt		 rbt.h	      w16.0
+commands1.txt	myOutput2.txt		 readme.txt   w17.0
+commands2.txt	myOutput3.txt		 real.c       w18.0
+commands3.txt	myOutput4.txt		 real.h       w19.0
+commands4.txt	myOutput5.txt		 s10.0	      w20.0
+commands5.txt	myOutput6.txt		 s11.0	      w21.0
+commands6.txt	myOutput8.txt		 s12.0	      w22.0
+commands.txt	myOutput9.txt		 s13.0	      w23.0
+comparator.c	myOutput.txt		 s14.0	      w24.0
+comparator.h	out10.txt		 s15.0	      WORKING
+corpus0.txt	out17.txt		 s9.0

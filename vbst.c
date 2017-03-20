@@ -99,13 +99,16 @@ void deleteVBST(vbst *tree,void *value)
 
 	if(search == NULL)
 	{
+		fprintf(stderr, "Value");
+		new_node->display(stderr, new_node->value);
+		fprintf(stderr, "not found.\n");
 		return;
 	}
 
 	if (((vbstValue *)(search->value))->freq > 1)
 	{
 		((vbstValue *)(search->value))->freq -= 1;
-		((vbst *)(search->value))->words -= 1;
+		tree->words -= 1;
 	}
 	else
 	{

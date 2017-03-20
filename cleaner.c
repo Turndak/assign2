@@ -22,13 +22,13 @@ void cleanString(char *str)
 	{
 		if(isspace((unsigned char)*src))
 		{
-			while(isspace((unsigned char)*src) || ispunct((unsigned char)*src) || isdigit((unsigned char)*src))
+			while(!isalpha((unsigned char)*src))
 			{
 				src++;
 				*dest = ' ';
 			}
 		}
-		else if (ispunct((unsigned char)*src) || isdigit((unsigned char)*src))
+		else if (!isalpha((unsigned char)*src))
 		{
 			src++;
 		}
